@@ -48,6 +48,7 @@
       <div class="kicker">RBM Global · internal brief</div>
       <h1>Nigeria sentiment</h1>
       <div class="meta" id="meta">Loading map…</div>
+<p class="meta" style="max-width:44rem">Assessments carried forward from 27 September 2026; underlying sources span May–September. No new poll or verified X sample was added during the 30 September repair.</p>
       <div class="tools">
         <button class="layer on" data-layer="president">President</button>
         <button class="layer" data-layer="nsa">NSA / ONSA</button>
@@ -141,7 +142,7 @@
       fetch(GEO).then(r => r.json())
     ]).then(([data, geo]) => {
       DATA = data;
-      document.getElementById("meta").textContent = data.subjects.president + " · NSA " + data.subjects.nsa + " · updated " + data.updated;
+      document.getElementById("meta").textContent = data.subjects.president + " · NSA " + data.subjects.nsa + " · assessment " + (data.assessment_updated||data.updated) + " · source dates vary; see methodology";
       bindLayer(geo);
     }).catch(err => { document.getElementById("meta").textContent = "Failed to load map or data.json"; console.error(err); });
   </script>
