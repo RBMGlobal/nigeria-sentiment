@@ -77,8 +77,8 @@
     const alias = { "Federal Capital Territory": "FCT", "Fct": "FCT", "Nassarawa": "Nasarawa" };
     let DATA = null, LAYER = "president", layerGroup = null, selected = null;
     const map = L.map("map", { zoomControl: true }).setView([9.1, 8.1], 6);
-    L.tileLayer("https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png", {
-      attribution: "&copy; OSM &copy; CARTO", subdomains: "abcd", maxZoom: 12
+    L.tileLayer("https://tile.openstreetmap.org/{z}/{x}/{y}.png", {
+      attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors', maxZoom: 12
     }).addTo(map);
     function geoName(props) { const raw = props.admin1Name || props.name || ""; return alias[raw] || raw; }
     function rec(name) { return DATA.states.find(s => s.name.toLowerCase() === name.toLowerCase()); }
