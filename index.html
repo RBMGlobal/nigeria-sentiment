@@ -1,161 +1,17 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>NG Sentiment — President / NSA / ONSA</title>
-  <meta name="robots" content="noindex,nofollow" />
-  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
-  <style>
-    :root {
-      --paper:#f4f1ea; --ink:#16171a; --muted:#5c615c; --line:#d4d0c6;
-      --card:#fffdf8; --cold:#8b1e3f; --cool:#c46b4a; --mixed:#c4b48a; --warm:#2f6f4e;
-    }
-    * { box-sizing: border-box; }
-    html, body { margin:0; height:100%; font:15px/1.45 "Segoe UI",sans-serif; background:var(--paper); color:var(--ink); }
-    #map { position:absolute; inset:0; }
-    .hud { position:absolute; z-index:500; top:16px; left:16px; right:16px; display:flex; gap:12px; align-items:flex-start; pointer-events:none; }
-    .hud > * { pointer-events:auto; }
-    .brand { background:rgba(244,241,234,.94); border:1px solid var(--line); padding:12px 14px; max-width:420px; max-height:55vh; overflow:auto; }
-    .kicker { letter-spacing:.14em; text-transform:uppercase; font-size:10px; color:var(--muted); }
-    h1 { font-size:18px; margin:4px 0 6px; font-weight:650; }
-    .meta { font-size:12px; color:var(--muted); }
-    .tools { display:flex; gap:6px; margin-top:10px; flex-wrap:wrap; }
-    button.layer { border:1px solid var(--ink); background:transparent; color:var(--ink); padding:6px 10px; cursor:pointer; font:inherit; font-size:13px; }
-    button.layer.on { background:var(--ink); color:var(--paper); }
-    .legend { margin-top:8px; display:flex; gap:10px; font-size:11px; color:var(--muted); }
-    .sw { width:10px; height:10px; display:inline-block; margin-right:3px; vertical-align:middle; }
-    .panel { margin-left:auto; width:min(380px,100%); max-height:calc(100vh - 32px); overflow:auto; background:rgba(22,23,26,.96); color:var(--paper); padding:16px 18px; display:none; }
-    .panel.on { display:block; }
-    .panel h2 { margin:0 0 4px; font-size:20px; }
-    .panel .zone { font-size:11px; letter-spacing:.08em; text-transform:uppercase; color:#b7b3a8; }
-    .panel .close { float:right; background:none; border:0; color:var(--paper); font-size:20px; cursor:pointer; }
-    .chip { display:inline-block; margin:10px 6px 0 0; padding:2px 8px; font-size:11px; text-transform:uppercase; letter-spacing:.04em; }
-    .chip.cold { background:var(--cold); } .chip.cool { background:var(--cool); }
-    .chip.mixed { background:#8a7a4e; } .chip.warm { background:var(--warm); }
-    .panel h3 { font-size:12px; letter-spacing:.08em; text-transform:uppercase; margin:16px 0 6px; color:#b7b3a8; }
-    .panel p { margin:0 0 8px; font-size:14px; }
-    .nums { font-size:12px; color:#cfc8b8; }
-    .leaflet-container { background:#d9d4c8; }
-    .leaflet-tooltip.state-tip { background:var(--ink); color:var(--paper); border:0; border-radius:0; font:12px/1.3 "Segoe UI",sans-serif; padding:4px 7px; }
-    @media (max-width:720px) { .hud { flex-direction:column; } .panel { margin-left:0; width:100%; max-height:42vh; } }
-  </style>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Nigeria sentiment — RBM Global</title>
+  <link rel="canonical" href="https://rbmglobal.co.uk/sentiment/">
+  <meta http-equiv="refresh" content="0; url=https://rbmglobal.co.uk/sentiment/">
+  <meta name="robots" content="noindex, follow">
+  <script>window.location.replace('https://rbmglobal.co.uk/sentiment/' + window.location.search + window.location.hash);</script>
+  <style>body{margin:4rem auto;padding:0 1.5rem;max-width:38rem;font:18px/1.6 system-ui,sans-serif;color:#17283a}a{color:#185a81}</style>
 </head>
 <body>
-  <div id="map"></div>
-  <div class="hud">
-    <div class="brand">
-      <div class="kicker">RBM Global · internal brief</div>
-      <h1>Nigeria sentiment</h1>
-      <div class="meta" id="meta" role="status" aria-live="polite">Loading map…</div>
-<p class="meta" style="max-width:44rem">State assessments remain dated 27 September 2026. New national evidence was added on 12 October; it does not update the state ratings or historical, unverified X sample.</p>
-<details class="meta" id="national-evidence" style="margin:8px 0;max-width:44rem"><summary style="cursor:pointer"><b>New national evidence: Yiaga NVIS 3.0</b></summary><div style="max-height:36vh;overflow:auto;padding-top:8px"><p><b>Presidential performance:</b> 22% approve, 54% disapprove, 24% indifferent. Separately, 61% say fear of violence could prevent them voting. These are national survey results, not state scores or a measure of NSA/ONSA approval.</p><p><b>Dates and sample:</b> published 7 October 2026; fieldwork September 2026 (exact days not disclosed). Yiaga Africa commissioned ISCL/API: 2,470 adults aged 18+, covering 36 states and FCT; 2,066 telephone interviews and 404 rural face-to-face interviews.</p><p><b>Limits:</b> telephone sampling used random dialling and panel contacts; rural respondents were convenience-selected at six sites. Results were weighted by sex within zone, not age. Youth are underrepresented. The stated ±2.1-point national margin is only a nominal guide for this mixed sample. Added rural interviews and differing measures prevent a like-for-like trend comparison with the older dashboard polls. No national result has been assigned to states.</p><p><a href="https://nvis.yiaga.org/assets/Willing%20But%20Wary%20NVIS%203.0%20Report-C6rt7tL9.pdf" target="_blank" rel="noopener">Primary report: methods pp. 14–17; findings pp. 21, 23</a> · Reviewed 12 October 2026.</p></div></details>
-      <div class="tools">
-        <button class="layer on" data-layer="president" aria-pressed="true">President</button>
-        <button class="layer" data-layer="nsa" aria-pressed="false">NSA / ONSA</button>
-      </div>
-      <div class="legend">
-        <span><i class="sw" style="background:var(--cold)"></i>Cold</span>
-        <span><i class="sw" style="background:var(--cool)"></i>Cool</span>
-        <span><i class="sw" style="background:var(--mixed)"></i>Mixed</span>
-        <span><i class="sw" style="background:var(--warm)"></i>Warm</span>
-      </div>
-    </div>
-    <aside class="panel" id="panel">
-      <button class="close" id="close" type="button" aria-label="Close state details">×</button>
-      <div class="zone" id="p-zone"></div>
-      <h2 id="p-name"></h2>
-      <div id="p-chips"></div>
-      <div id="p-body"></div>
-    </aside>
-  </div>
-  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
-  <script src="dashboard-utils.js"></script>
-<script>
-    if(typeof SentimentUtils==="undefined"){document.getElementById("meta").textContent="Dashboard helpers unavailable. Reload to retry.";throw new Error("Dashboard helpers unavailable")}
-const {escapeHtml:esc, fetchJson, validateData, validateGeo} = SentimentUtils;
-const stateIndex = new Map(), zoneIndex = new Map();
-const COLORS = { cold:"#8b1e3f", cool:"#c46b4a", mixed:"#c4b48a", warm:"#2f6f4e" };
-    const LABEL = { cold:"Cold", cool:"Cool", mixed:"Mixed", warm:"Warm" };
-    const GEO = "https://cdn.jsdelivr.net/gh/iamspruce/intro-d3@main/data/nigeria_state_boundaries.geojson";
-    let DATA = null, LAYER = "president", layerGroup = null, selected = null;
-    if(typeof L==="undefined"){document.getElementById("meta").textContent="Map library unavailable. Reload to retry.";throw new Error("Leaflet unavailable")}
-    const map = L.map("map", { zoomControl: false }).setView([9.1, 8.1], 6);
-L.control.zoom({position:"bottomright"}).addTo(map);
-    L.tileLayer("https://tile.openstreetmap.org/{z}/{x}/{y}.png", {
-      attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors', maxZoom: 12
-    }).addTo(map);
-    function geoName(props) { return SentimentUtils.geoName(props); }
-    function rec(name) { return stateIndex.get(String(name||"").toLowerCase()); }
-    function zoneOf(s) { return zoneIndex.get(s.zone); }
-    function tone(s) { return s[LAYER === "president" ? "president" : "nsa"]; }
-    function why(s) {
-      const z = zoneOf(s);
-      let pres = "<h3>President — " + LABEL[s.president] + "</h3><p>" + esc(s.note) + "</p>";
-      if (z) pres += "<p class='nums'>" + esc(z.name) + " poll: approve " + esc(z.approve) + "% · disapprove " + esc(z.disapprove) + "%. " + esc(z.read) + "</p>";
-      let nsa = "<h3>NSA / ONSA — " + LABEL[s.nsa] + "</h3>";
-      if (s.nsa === "cold") nsa += "<p>Security load is high enough that the office is judged locally by violence, kidnap or insurgency — not by national talking points.</p>";
-      else if (s.nsa === "cool") nsa += "<p>ONSA is not the main daily story here. Residual threat exists, but presidential or economic politics usually outrank Ribadu personally.</p>";
-      else nsa += "<p>Compared with the northern theatres, this state is a quieter ONSA file. Sentiment tracks the President more than the security architecture.</p>";
-      nsa += "<p>" + esc(s.note) + "</p>";
-      if (z) nsa += "<p class='nums'>Zone unsafe: " + esc(z.unsafe) + "%.</p>";
-      return pres + nsa;
-    }
-    function openPanel(s) {
-      selected = s.name;
-      document.getElementById("p-zone").textContent = s.zone + " · directional, not a poll %";
-      document.getElementById("p-name").textContent = s.name;
-      document.getElementById("p-chips").innerHTML = "<span class='chip " + s.president + "'>President " + LABEL[s.president] + "</span><span class='chip " + s.nsa + "'>NSA " + LABEL[s.nsa] + "</span>";
-      document.getElementById("p-body").innerHTML = why(s);
-      document.getElementById("panel").classList.add("on");
-      if (layerGroup) layerGroup.eachLayer(l => styleFeat(l));
-    }
-    function styleFeat(l) {
-      const name = geoName(l.feature.properties);
-      const s = rec(name);
-      const t = s ? tone(s) : "mixed";
-      const active = selected === (s && s.name);
-      l.setStyle({ color: active ? "#16171a" : "#f4f1ea", weight: active ? 2.4 : 1, fillColor: COLORS[t] || COLORS.mixed, fillOpacity: active ? 0.92 : 0.78 });
-    }
-    function paint() { if (layerGroup) layerGroup.eachLayer(l => styleFeat(l)); }
-    function bindLayer(gj) {
-      if (layerGroup) map.removeLayer(layerGroup);
-      layerGroup = L.geoJSON(gj, {
-        style: () => ({ color:"#f4f1ea", weight:1, fillOpacity:0.78 }),
-        onEachFeature: (feat, l) => {
-          const name = geoName(feat.properties);
-          const s = rec(name);
-          l.bindTooltip(esc(name), { sticky:true, className:"state-tip" });
-          l.on("mouseover", () => l.setStyle({ weight:2, fillOpacity:0.92 }));
-          l.on("mouseout", () => styleFeat(l));
-          l.on("click", () => { if (s) openPanel(s); });
-        }
-      }).addTo(map);
-      paint();
-      map.fitBounds(layerGroup.getBounds(), { padding:[20,20], maxZoom:7 });
-    }
-    document.getElementById("close").onclick = () => { selected = null; document.getElementById("panel").classList.remove("on"); paint(); };
-    document.querySelectorAll("button.layer").forEach(b => {
-      b.onclick = () => {
-        LAYER = b.dataset.layer;
-        document.querySelectorAll("button.layer").forEach(x => { x.classList.remove("on"); x.setAttribute("aria-pressed","false"); });
-        b.classList.add("on"); b.setAttribute("aria-pressed","true"); paint();
-        if (selected) { const s = rec(selected); if (s) openPanel(s); }
-      };
-    });
-    document.addEventListener("keydown",e=>{if(e.key==="Escape")document.getElementById("close").click()});
-    Promise.all([
-      fetchJson("data.json"),
-      fetchJson(GEO, {cache:"default"})
-    ]).then(([data, geo]) => {
-      const indexes=validateData(data);
-      validateGeo(geo,indexes.states);
-      DATA = data;
-      indexes.states.forEach((v,k)=>stateIndex.set(k,v));
-      indexes.zones.forEach((v,k)=>zoneIndex.set(k,v));
-      document.getElementById("meta").textContent = data.subjects.president + " · NSA " + data.subjects.nsa + " · assessment " + (data.assessment_updated||data.updated) + " · source dates vary; see methodology";
-      bindLayer(geo);
-    }).catch(err => { document.getElementById("meta").textContent = "Map or assessment data unavailable or incomplete. Reload to retry."; console.error(err); });
-  </script>
+  <h1>Nigeria sentiment</h1>
+  <p>The dashboard is now at <a href="https://rbmglobal.co.uk/sentiment/">rbmglobal.co.uk/sentiment/</a>.</p>
 </body>
 </html>
